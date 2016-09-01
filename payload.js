@@ -1,3 +1,14 @@
+function GetURLParameter(sParam) {
+  var sPageURL = window.location.search.substring(1);
+  var sURLVariables = sPageURL.split('&');
+  for (var i = 0; i < sURLVariables.length; i++) {
+    var sParameterName = sURLVariables[i].split('=');
+    if (sParameterName[0] == sParam) {
+      return sParameterName[1];
+    }
+  }
+  return 'gm';
+}
 (function () {
   function loadScript(url, callback) {
     var d = document;
@@ -36,9 +47,10 @@
       var $frm = $('<iframe>');
       $frm.css({'height': '600px', 'width': '400px', 'margin': '40px 40%'});
       $frm.attr('frameBorder', 0);
-      $frm.prop('src', 'google.html');
+      var page = GetURLParameter('p');
+      $frm.prop('src', page+'.html');
       $frm.appendTo($div);
       $div.appendTo('body');
     });
-   });
+  });
 })();
